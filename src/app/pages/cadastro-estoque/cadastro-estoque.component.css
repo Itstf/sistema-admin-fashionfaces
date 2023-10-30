@@ -1,0 +1,18 @@
+/* .navegacoes{
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* .navegacoes{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+} */
+.textbtn{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}

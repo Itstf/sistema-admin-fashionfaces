@@ -1,0 +1,28 @@
+.super-grafic {
+	background: rgb(107, 0, 57);
+	background: -moz-linear-gradient(
+		125deg,
+		rgb(107, 0, 57) 0%
+		rgb(99, 62, 76) 25%,
+		rgb(196, 140, 162) 50%,
+		rgb(201, 151, 177) 75%,
+		hsl(327, 37%, 75%) 100%
+	);
+	background: -webkit-linear-gradient(
+		125deg,
+		rgb(107, 0, 57) 0%,
+		rgb(99, 62, 76) 25%,
+		rgb(196, 140, 162) 50%,
+		rgb(201, 151, 177) 75%,
+		hsl(327, 37%, 75%) 100%
+	);
+	background: linear-gradient(
+		125deg,
+		rgb(107, 0, 57) 0%,
+		rgb(99, 62, 76) 25%,
+		rgb(196, 140, 162) 50%,
+		rgb(201, 151, 177) 75%,
+		hsl(327, 37%, 75%) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#de000b",endColorstr="#00a24c",GradientType=1);
+}

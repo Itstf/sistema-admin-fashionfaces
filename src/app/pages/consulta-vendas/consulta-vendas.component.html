@@ -1,0 +1,78 @@
+<section class="bg-gray-50 dark:bg-gray-700 mb-10">
+  <div class="max-w-screen-xl px-4 py-3 mx-auto">
+      <div class="flex items-center">
+          <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+              <li>
+                  <a routerLink="/cadastro_estoque" class="text-gray-900 dark:text-white hover:underline">Cadastro Estoque</a>
+              </li>
+              <li>
+                  <a routerLink="/consulta_estoque" class="text-gray-900 dark:text-white hover:underline">Consulta Estoque</a>
+              </li>
+              <li>
+                  <a routerLink="/cadastro_vendas" class="text-gray-900 dark:text-white hover:underline">Cadastro Vendas</a>
+              </li>
+              <li>
+                  <a routerLink="/consulta_vendas" class="text-gray-900 dark:text-white hover:underline">Consulta Vendas</a>
+              </li>
+              <li>
+                  <a routerLink="/fornecedores" class="text-gray-900 dark:text-white hover:underline">Fornecedores</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</section>
+<div class="flex flex-col p-4">
+  <h1 class="text-3xl font-bold mb-5 text-center text-[#824356]">Consulta das vendas</h1>
+  <div class="flex">
+    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 w-32 ml-10"
+      (click)="excluirTodasAsVendas()">ExcluirTodos</button>
+      <p class="text-xl ml-5 flex items-center">Valor total de vendas: {{ formatarDinheiro(valorTotalVendas) }}</p>
+    <!-- <app-valores-totais [valorTotalVendas]="calcularValoresTotais()" class="ml-5 flex items-center"></app-valores-totais> -->
+  </div>
+  <div class="overflow-x-auto ml-10 mr-10 mt-5">
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <!-- <th class="px-4 py-2 bg-gray-200 text-gray-600">Item ID</th> -->
+          <!-- <th class="px-4 py-2 bg-gray-200 text-gray-600">ID</th> -->
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Nome da Peça</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Nome do Cliente</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Quantidade Vendida</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Forma de Pagamento</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Contato</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">CPF</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Valor Total</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Data</th>
+          <th class="px-4 py-2 bg-gray-200 text-gray-600">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vendas" class="odd:bg-gray-100 even:bg-white text-center">
+          <!-- <td class="px-4 py-2">{{ item.itemId }}</td> -->
+          <!-- <td class="px-4 py-2">{{ item.id }}</td> -->
+          <td class="px-4 py-2">{{ item.nomeItem }}</td>
+          <td class="px-4 py-2">{{ item.clienteNome }}</td>
+          <td class="px-4 py-2">{{ item.quantidade }}</td>
+          <td class="px-4 py-2">{{ item.formaPagamento }}</td>
+          <td class="px-4 py-2">{{ item.contato | telefoneFormat }}</td>
+          
+          <td class="px-4 py-2">{{ item.cpf | cpfFormat }}</td>
+          <td>{{ formatarDinheiro(calcularValorTotal(item)) }}</td>
+
+
+          <!-- <td class="px-4 py-2">{{ item.valorTotal}}</td> -->
+          <!-- <td class="px-4 py-2">{{ item.dataVenda}}</td> -->
+          <td>{{ item.dataVenda | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td class="px-4 py-2">
+            <!-- consulta-vendas.component.html -->
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 mr-2 mb-2"
+              (click)="navegarParaEdicao(item)">Editar</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 mr-2"
+              (click)="excluirVenda(item)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

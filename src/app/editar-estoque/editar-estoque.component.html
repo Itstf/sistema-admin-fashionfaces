@@ -1,0 +1,43 @@
+<form *ngIf="item" (ngSubmit)="atualizarItem()" class="p-4 bg-white shadow-md rounded-lg">
+    <div class="mb-4">
+      <label for="nome" class="block text-sm font-medium text-gray-700">Nome:</label>
+      <input type="text" id="nome" name="nome" [(ngModel)]="item.nome" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+    </div>
+  
+    <div class="mb-4">
+      <label for="descricao" class="block text-sm font-medium text-gray-700">Descrição:</label>
+      <input type="text" id="descricao" name="descricao" [(ngModel)]="item.descricao" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+    </div>
+  
+    <div class="mb-4">
+      <label for="tamanho" class="block text-sm font-medium text-gray-700">Tamanho:</label>
+      <select id="tamanho" name="tamanho" [(ngModel)]="item.tamanho" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+        <option value="PP">PP</option>
+        <option value="P">P</option>
+        <option value="M">M</option>
+        <option value="G">G</option>
+        <option value="Tamanho único">Tamanho único</option>
+      </select>
+    </div>
+  
+    <div class="mb-4">
+      <label for="fornecedor" class="block text-sm font-medium text-gray-700">Fornecedor:</label>
+      <input type="text" id="fornecedor" name="fornecedor" [(ngModel)]="item.fornecedor" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+    </div>
+  
+    <div class="mb-4">
+      <label for="quantidade" class="block text-sm font-medium text-gray-700">Quantidade:</label>
+      <input type="number" id="quantidade" name="quantidade" [(ngModel)]="item.quantidade" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+    </div>
+    <div class="mb-4">
+      <label for="precocompra" class="block text-sm font-medium text-gray-700">Preço entrada</label>
+      <input type="number" id="precocompra" name="precocompra" [(ngModel)]="item.precocompra" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+    </div>
+    <div class="mb-4">
+      <label for="preco" class="block text-sm font-medium text-gray-700">Preço saída</label>
+      <input type="number" id="preco" name="preco" [(ngModel)]="item.preco" class="w-full p-2 rounded border focus:ring-blue-500 focus:border-blue-500">
+    </div>
+  
+    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:ring focus:ring-blue-300 focus:ring-opacity-50">Atualizar</button>
+  </form>
+  

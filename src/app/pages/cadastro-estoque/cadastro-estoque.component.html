@@ -1,0 +1,88 @@
+
+<section class="bg-gray-50 dark:bg-gray-700 mb-10">
+  <div class="max-w-screen-xl px-4 py-3 mx-auto">
+      <div class="flex items-center">
+          <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+              <li>
+                  <a routerLink="/cadastro_estoque" class="text-gray-900 dark:text-white hover:underline">Cadastro Estoque</a>
+              </li>
+              <li>
+                  <a routerLink="/consulta_estoque" class="text-gray-900 dark:text-white hover:underline">Consulta Estoque</a>
+              </li>
+              <li>
+                  <a routerLink="/cadastro_vendas" class="text-gray-900 dark:text-white hover:underline">Cadastro Vendas</a>
+              </li>
+              <li>
+                  <a routerLink="/consulta_vendas" class="text-gray-900 dark:text-white hover:underline">Consulta Vendas</a>
+              </li>
+              <li>
+                  <a routerLink="/fornecedores" class="text-gray-900 dark:text-white hover:underline">Fornecedores</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</section>
+
+<div class="flex">
+  <div class="ml-10 mr-10 w-full w-screen">
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-10 text-center text-[#824356]">Cadastro de estoque</h1>
+    </div>
+    <form #cadastroForm="ngForm" (ngSubmit)="onSubmit(cadastroForm)">
+
+
+      <div class="grid gap-6 mb-6 md:grid-cols-2 mt-5">
+        <div>
+          <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome da peça</label>
+          <input type="text" id="first_name" name="nome" [(ngModel)]="nome"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="T-shirt Estampada" requied>
+        </div>
+        <div>
+          <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição</label>
+          <input type="text" id="last_name" name="descricao" [(ngModel)]="descricao"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Uma camiseta casual com estampa criativa, ideal para uso diário" required>
+        </div>
+        <div>
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tamanho</label>
+          <select id="countries" name="tamanho" [(ngModel)]="tamanho"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected>Selecione o tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="TM">Tamanho único</option>
+          </select>
+        </div>
+        <div>
+          <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fornecedor</label>
+          <input type="text" id="company" name="fornecedor" [(ngModel)]="fornecedor"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Fashion World Inc" required>
+        </div>
+        <div>
+          <label for="visitors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quantidade</label>
+          <input type="number" id="visitors" name="quantidade" [(ngModel)]="quantidade"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="" required>
+        </div>
+        <div>
+          <label for="precocompra" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preço de Compra</label>
+          <input type="number" id="precocompra" name="precocompra" [(ngModel)]="precocompra"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Preço da compra" required>
+        </div>
+        <div>
+          <label for="preco" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preço de Venda</label>
+          <input type="number" id="preco" name="preco" [(ngModel)]="preco"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Preço a ser vendido" required>
+        </div>
+      </div>
+      <button type="submit"
+        class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus-ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover-bg-blue-500 dark:focus-ring-blue-800">Cadastrar estoque</button>
+    </form>
+  </div>
+</div>

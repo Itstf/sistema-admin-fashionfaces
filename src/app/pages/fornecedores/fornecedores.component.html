@@ -1,0 +1,60 @@
+<section class="bg-gray-50 dark:bg-gray-700 mb-10">
+    <div class="max-w-screen-xl px-4 py-3 mx-auto">
+        <div class="flex items-center">
+            <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+                <li>
+                    <a routerLink="/cadastro_estoque" class="text-gray-900 dark:text-white hover:underline">Cadastro Estoque</a>
+                </li>
+                <li>
+                    <a routerLink="/consulta_estoque" class="text-gray-900 dark:text-white hover:underline">Consulta Estoque</a>
+                </li>
+                <li>
+                    <a routerLink="/cadastro_vendas" class="text-gray-900 dark:text-white hover:underline">Cadastro Vendas</a>
+                </li>
+                <li>
+                    <a routerLink="/consulta_vendas" class="text-gray-900 dark:text-white hover:underline">Consulta Vendas</a>
+                </li>
+                <li>
+                    <a routerLink="/fornecedores" class="text-gray-900 dark:text-white hover:underline">Fornecedores</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </section>
+<div class="p-4">
+    <!-- <h1 class="text-2xl font-bold mb-4">Fornecedores</h1>
+    <input
+      type="text"
+      [(ngModel)]="novoFornecedor"
+      placeholder="Nome do novo fornecedor"
+      class="border p-2"
+    />
+    <button
+      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+      (click)="adicionarFornecedor()"
+    >
+      Adicionar
+    </button> -->
+    <table class="min-w-full border mt-4">
+      <thead>
+        <tr>
+          <th class="border font-bold mb-10 text-center text-[#824356] text-2xl">Fornecedores</th>
+          <!-- <th class="border p-2">Ações</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fornecedor of fornecedores" class="border">
+          <td class="border p-2 text-center">{{ fornecedor.nome }}</td>
+          <!-- <td class="border p-2"> -->
+            <!-- <button
+              class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
+              (click)="excluirFornecedor(fornecedor)"
+            >
+              Excluir
+            </button> -->
+          <!-- </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
