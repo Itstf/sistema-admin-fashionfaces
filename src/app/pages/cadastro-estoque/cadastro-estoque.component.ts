@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import Swal from 'sweetalert2'; // Importe o SweetAlert2
+import Swal from 'sweetalert2'; 
 
 import { EstoqueService } from 'src/app/estoque.service';
 import { Estoque } from 'src/app/estoque.model';

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2'; // Importe o SweetAlert2
 import { EstoqueService } from 'src/app/estoque.service';
 import { Estoque } from 'src/app/estoque.model';
 import { VendasService } from 'src/app/vendas.service';
@@ -10,6 +11,7 @@ import { Venda } from 'src/app/venda.model';
   styleUrls: ['./cadastro-vendas.component.css'],
 })
 export class CadastroVendasComponent {
+  // Propriedades do formulário
   selectedEstoqueItem: Estoque | null = null;
   clienteNome: string = '';
   formaPagamento: string = '';
@@ -39,34 +41,40 @@ export class CadastroVendasComponent {
 
   onSubmit() {
     if (!this.selectedEstoqueItem) {
-      alert('Selecione um item do estoque.');
+      // Use SweetAlert2 para exibir uma mensagem de erro
+      Swal.fire('Erro', 'Selecione um item do estoque.', 'error');
       return;
     }
 
     if (this.selectedEstoqueItem.id === undefined) {
-      alert('ID do item do estoque não encontrado.');
+      // Use SweetAlert2 para exibir uma mensagem de erro
+      Swal.fire('Erro', 'ID do item do estoque não encontrado.', 'error');
       return;
     }
 
     const estoqueItem = this.estoqueService.obterItemPorId(this.selectedEstoqueItem.id);
 
     if (!estoqueItem) {
-      alert('Item do estoque não encontrado.');
+      // Use SweetAlert2 para exibir uma mensagem de erro
+      Swal.fire('Erro', 'Item do estoque não encontrado.', 'error');
       return;
     }
 
     if (this.quantidade > estoqueItem.quantidade) {
-      alert('A quantidade selecionada excede o estoque disponível.');
+      // Use SweetAlert2 para exibir uma mensagem de erro
+      Swal.fire('Erro', 'A quantidade selecionada excede o estoque disponível.', 'error');
       return;
     }
 
     if (!this.validateTelefone(this.contato)) {
-      alert('Número de telefone incorreto. Deve conter exatamente 11 dígitos.');
+      // Use SweetAlert2 para exibir uma mensagem de erro
+      Swal.fire('Erro', 'Número de telefone incorreto. Deve conter exatamente 11 dígitos.', 'error');
       return;
     }
 
     if (!this.validateCpf(this.cpf)) {
-      alert('CPF incorreto. Use o formato XXX.XXX.XXX-XX.');
+      // Use SweetAlert2 para exibir uma mensagem de erro
+      Swal.fire('Erro', 'CPF incorreto. Use o formato XXX.XXX.XXX-XX.', 'error');
       return;
     }
 
@@ -86,6 +94,10 @@ export class CadastroVendasComponent {
 
     this.vendasService.registrarVenda(novaVenda);
 
+    // Use SweetAlert2 para exibir uma mensagem de sucesso
+    Swal.fire('Sucesso', 'Venda registrada com sucesso!', 'success');
+
+    // Limpe os campos do formulário
     this.selectedEstoqueItem = null;
     this.clienteNome = '';
     this.formaPagamento = '';
