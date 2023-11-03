@@ -15,6 +15,9 @@ export class ConsultaVendasComponent implements OnInit, OnDestroy {
   itensEstoque: any[] = [];
   valorTotalVendas: number = 0;
 
+  pesquisa: string = '';
+  resultadosPesquisa: Venda[] = [];
+
   private vendaEditadaSubscription: Subscription;
 
   constructor(
@@ -31,6 +34,7 @@ export class ConsultaVendasComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.vendas = this.vendasService.obterVendas();
     this.itensEstoque = this.estoqueService.obterEstoque();
+    this.resultadosPesquisa = this.vendas;
     this.calcularValorTotalVendas();
   }
 
@@ -148,4 +152,17 @@ export class ConsultaVendasComponent implements OnInit, OnDestroy {
       this.atualizarQuantidadeEstoque(venda.itemId, venda.quantidade);
     }
   }
+
+  pesquisar() {
+    if (this.pesquisa.trim() === '') {
+      // Se a pesquisa estiver vazia, exiba todas as vendas.
+      this.resultadosPesquisa = this.vendas;
+    } else {
+      // Caso contrário, filtre as vendas com base no nome do cliente.
+      this.resultadosPesquisa = this.vendas.filter((item) =>
+        item.clienteNome.toLowerCase().includes(this.pesquisa.toLowerCase())
+      );
+    }
+  }
+  
 }

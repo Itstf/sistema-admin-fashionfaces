@@ -23,10 +23,14 @@
 </section>
 <div class="flex flex-col p-4">
   <h1 class="text-3xl font-bold mb-5 text-center text-[#824356]">Consulta do estoque</h1>
-  <div class="flex">
-    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 w-32 ml-10" (click)="excluirTodosItens()">Excluir
-      Todos</button>
-    <p class="text-xl ml-5 flex items-center ml-5">Valor total dos custos: {{ formatarDinheiro(valorTotalCusto) }}</p>
+  <div class="flex justify-between">
+    <div class="flex">
+      <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 w-32 ml-10" (click)="excluirTodosItens()">Excluir
+        Todos</button>
+      <p class="text-xl ml-5 flex items-center ml-5">Valor total dos custos: {{ formatarDinheiro(valorTotalCusto) }}</p>
+    </div>
+    <input type="text" [(ngModel)]="pesquisa" (input)="pesquisar()" placeholder="Pesquisar pelo nome da peça"
+      class="flex items-center rounded-lg p-2 w-80 ml-10 mr-10 border-[#824356]">
   </div>
   <div class="overflow-x-auto ml-10 mr-10 mt-5">
     <table class="min-w-full">
@@ -46,7 +50,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of estoqueItens"
+        <tr *ngFor="let item of resultadosPesquisa"
           class="border-b border-gray-200 text-center odd:bg-gray-100 even:bg-white">
           <!-- <td class="px-6 py-4">{{ item.id }}</td> -->
           <td class="px-6 py-4">{{ item.nome }}</td>

@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class ConsultaEstoqueComponent implements OnInit {
   estoqueItens: Estoque[] = [];
   valorTotalCusto: number = 0;
+  pesquisa: string = ''; // Adicione a propriedade de pesquisa
+  resultadosPesquisa: Estoque[] = []; // Adicione a lista de resultados da pesquisa
+  
 
   constructor(private estoqueService: EstoqueService, private router: Router) {
     // Não calcule o valorTotalCusto aqui, pois estoqueItens ainda não está carregado.
@@ -18,6 +21,7 @@ export class ConsultaEstoqueComponent implements OnInit {
   
   ngOnInit() {
     this.estoqueItens = this.estoqueService.obterEstoque();
+    this.resultadosPesquisa = this.estoqueItens;
     this.calcularValorTotalCusto(); // Agora, você pode calcular o valor após carregar os itens.
   }
 
@@ -86,4 +90,20 @@ export class ConsultaEstoqueComponent implements OnInit {
     });
     return formatter.format(valor);
   }
+
+  // Função para realizar a pesquisa
+  pesquisar() {
+    if (this.pesquisa.trim() === '') {
+      // Se a pesquisa estiver vazia, exiba todos os itens do estoque.
+      this.resultadosPesquisa = this.estoqueItens;
+    } else {
+      // Caso contrário, filtre os itens com base na pesquisa.
+      this.resultadosPesquisa = this.estoqueItens.filter((item) =>
+        item.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+      );
+    }
+  }
+  
+  
+  
 }
