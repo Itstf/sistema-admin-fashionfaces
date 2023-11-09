@@ -6,5 +6,6 @@ export class Estoque {
     fornecedor: string = '';
     quantidade: number = 0;
     preco: number = 0; 
-    precocompra: number = 0; 
+    precocompra: number = 0;
+    dataCadastroEtq!: Date;
 }

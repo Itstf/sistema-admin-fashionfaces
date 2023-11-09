@@ -22,6 +22,7 @@ import { CpfFormatPipe } from './cpf-format.pipe';
 import { TelefoneFormatPipe } from './telefone-format.pipe';
 import { ValoresTotaisComponent } from './pages/valores-totais/valores-totais.component';
 import { FornecedoresComponent } from './pages/fornecedores/fornecedores.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { FornecedoresComponent } from './pages/fornecedores/fornecedores.compone
     TelefoneFormatPipe,
     ValoresTotaisComponent,
     FornecedoresComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,

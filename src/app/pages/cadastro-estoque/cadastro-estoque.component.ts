@@ -38,6 +38,7 @@ export class CadastroEstoqueComponent {
       quantidade: this.quantidade,
       preco: this.preco,
       precocompra: this.precocompra,
+      dataCadastroEtq: new Date(),
     };
 
     // Adicione o novo item ao serviço
